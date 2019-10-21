@@ -1,0 +1,22 @@
+<h1><%= @user.username %>'s Profile Page</h1>
+<h3>List of Stocks</h3>
+<ul>
+    <% @user.stocks.map do |stock| %>
+    <li>
+        <%= link_to stock.name, stock %>
+    </li>
+    <% end %>
+</ul>
+<p>Total Worth: </p>
+<p>Best Stock:</p>
+<p>Stats:</p>
+<ul>
+    <li>
+        Battles Won:
+    </li>
+    <li>
+        Battles Lost
+    </li>
+</ul>
+
+<h2>BATTLE ME</h2>
