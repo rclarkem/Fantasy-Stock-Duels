@@ -7,12 +7,16 @@ class StockPicksController < ApplicationController
   end
 
   def create
-    byebug
     @stock_pick = StockPick.create(params_stock_pick)
     if @stock_pick.valid?
-
+      redirect_to stock_pick_path(@stock_path)
     end
   end
+
+  def show
+    @user = @stock_pick.user
+  end
+
 
 
 private

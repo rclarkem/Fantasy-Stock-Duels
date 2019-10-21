@@ -3,4 +3,4 @@
 <h2>Current Price: <%= @stock.current_value  %></h2>
 <h2>Shares Left: <%=@stock.current_quantity  %></h2>
 
-<%= button_to "Buy Stock", new_stock_pick_path%>
+<%= button_to "Buy Stock", new_stock_pick_path, method: :get%>
