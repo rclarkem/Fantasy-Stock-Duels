@@ -2,7 +2,9 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-#
+# Stock.destroy_all
+# StockPick.destroy_all
+# User.destroy_all
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user1 = User.create(name: "Reina", username: "RC", email: "reina@gmail.com", password: "password", about_me: "I go to Flatiron", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
@@ -19,6 +21,3 @@ stockpick2 = StockPick.create(user: user2, stock: stock2, quantity: 1, value: 27
 stockpick1 = StockPick.create(user: user1, stock: stock1, quantity: 2, value: 480)
 stockpick3 = StockPick.create(user: user3, stock: stock3, quantity: 4, value: (stock3.initial_value * 3))
 stockpick4 = StockPick.create(user: user4, stock: stock4, quantity: 10, value: (stock4.initial_value * 10))
-
-
-
