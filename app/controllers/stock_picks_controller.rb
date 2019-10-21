@@ -3,13 +3,14 @@ class StockPicksController < ApplicationController
 
   def new
     @stock_pick = StockPick.new
+    # @stock_price = Stock.find
   end
 
   def create
     byebug
     @stock_pick = StockPick.create(params_stock_pick)
     if @stock_pick.valid?
-      
+
     end
   end
 
