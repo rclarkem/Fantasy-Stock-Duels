@@ -1,5 +1,5 @@
 <h1>Successfully Added Stock</h1>
 
 <body>
-  <p>Would you like to <%= button_to "Buy More Stocks", new_stock_pick_path%> or <%= button_to "Go to my profile", user_path(@user)%></p>
+  <p>Would you like to <%= button_to "Buy More Stocks", new_stock_pick_path, method: :get%> or <%= button_to "Go to my profile", @stock_pick.user, method: :get%></p>
 </body>

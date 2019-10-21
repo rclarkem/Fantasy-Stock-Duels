@@ -9,7 +9,7 @@ class StockPicksController < ApplicationController
   def create
     @stock_pick = StockPick.create(params_stock_pick)
     if @stock_pick.valid?
-      redirect_to  @stock_pick.stock
+      redirect_to  @stock_pick
     else
       redirect_to new_stock_pick_path
     end
