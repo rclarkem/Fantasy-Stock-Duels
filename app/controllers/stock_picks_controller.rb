@@ -9,7 +9,9 @@ class StockPicksController < ApplicationController
   def create
     @stock_pick = StockPick.create(params_stock_pick)
     if @stock_pick.valid?
-      redirect_to stock_pick_path(@stock_path)
+      redirect_to  @stock_pick.stock
+    else
+      redirect_to new_stock_pick_path
     end
   end
 
@@ -24,8 +26,8 @@ private
     @stock_pick = StockPick.find(params[:id])
   end
 
-  # def params_stock_pick
-  #   params.require(:).permit(:, :)
-  # end
+  def params_stock_pick
+    params.require(:stock_pick).permit(:user_id, :stock_id, :quantity, :value)
+  end
 
 end

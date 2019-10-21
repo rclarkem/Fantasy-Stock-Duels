@@ -4,8 +4,14 @@
     <%= f.label 'Name of Stock' %><br>
     <%= collection_select :stock_pick, :stock_id, Stock.all, :id, :name %><br>
 
+    <%= f.label 'investor' %><br>
+    <%= collection_select :stock_pick, :user_id, User.all, :id, :name %><br>
+
     <%= f.label 'Quantity' %><br>
     <%= f.number_field :quantity %><br>
+
+    <%= f.label 'Value' %><br>
+    <%= f.number_field :value %><br>
 
     <%= f.submit "Submit " %>
 <% end %>
