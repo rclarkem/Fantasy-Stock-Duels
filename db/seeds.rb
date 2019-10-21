@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+StockPick.destroy_all
+User.destroy_all
+Stock.destroy_all
+
 user1 = User.create(name: "Reina", username: "RC", email: "reina@gmail.com", password: "password", about_me: "I go to Flatiron", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
 user2 = User.create(name: "Jamal", username: "Jamalino", email: "jamal@gmail.com", password: "123456", about_me: "I'm super cool", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
 user3 = User.create(name: "Gaida", username: "Coder123", email: "gaida@gmail.com", password: "654321", about_me: "I love Jamal", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
@@ -19,6 +23,8 @@ stockpick2 = StockPick.create(user: user2, stock: stock2, quantity: 1, value: 27
 stockpick1 = StockPick.create(user: user1, stock: stock1, quantity: 2, value: 480)
 stockpick3 = StockPick.create(user: user3, stock: stock3, quantity: 4, value: (stock3.initial_value * 3))
 stockpick4 = StockPick.create(user: user4, stock: stock4, quantity: 10, value: (stock4.initial_value * 10))
+
+puts "It's been seeded"
 
 
 
