@@ -3,17 +3,24 @@ class StockPicksController < ApplicationController
 
   def new
     @stock_pick = StockPick.new
+    # byebug
     # @stock_price = Stock.find
   end
 
   def create
     @stock_pick = StockPick.create(params_stock_pick)
+    # byebug
     if @stock_pick.valid?
-      redirect_to  @stock_pick
+      if @stock_pick.stock.current_quantity - @stock_pick.quantity >= 0
+      curr_quan = @stock_pick.stock.current_quantity
+      @stock_pick.stock.update(current_quantity: curr_quan - @stock_pick.quantity)
+      redirect_to  stock_pick_path(@stock_pick)
+      end
     else
       redirect_to new_stock_pick_path
     end
   end
+
 
   def show
     @user = @stock_pick.user

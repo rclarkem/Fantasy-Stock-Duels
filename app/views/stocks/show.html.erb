@@ -1,6 +1,33 @@
 <h1><%= @stock.name %> (<%= @stock.ticker %>)</h1>
 
-<h2>Current Price: <%= @stock.current_value  %></h2>
+<h2>Current Price: <%= "$#{@stock.current_value}"  %></h2>
 <h2>Shares Left: <%=@stock.current_quantity  %></h2>
 
+<br>
+<h3>Investors Who Have This Stock: </h3>
+
+<ul>
+<% @stock.users.uniq.each do |user| %>
+  <li><%= user.username %></li>
+<% end %>
+</ul>
+
+
+<%= form_for @stock_pick do |f| %>
+    <%= f.hidden_field :stock_id, value: @stock.id %><br>
+
+    <%= f.label 'investor' %><br>
+    <%= collection_select :stock_pick, :user_id, User.all, :id, :name %><br>
+
+    <%= f.label 'Amount of Shares' %><br>
+    <%= f.number_field :quantity, min:1, step: 0 %><br>
+
+
+    <%= f.hidden_field :value, value: @stock.current_value %><br>
+
+    <%= f.submit "Submit " %>
+<% end %>
+
+
+<br>
 <%= button_to "Buy Stock", new_stock_pick_path, method: :get%>
