@@ -9,10 +9,10 @@ User.destroy_all
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.create(name: "Reina", username: "RC", email: "reina@gmail.com", password: "password", about_me: "I go to Flatiron", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
-user2 = User.create(name: "Jamal", username: "Jamalino", email: "jamal@gmail.com", password: "123456", about_me: "I'm super cool", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
-user3 = User.create(name: "Gaida", username: "Coder123", email: "gaida@gmail.com", password: "654321", about_me: "I love Jamal", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
-user4 = User.create(name: "Ethan", username: "EthanJF", email: "ethan@gmail.com", password: "p@ssw0rd", about_me: "I love coding", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+user1 = User.create(name: "Reina", username: "RC", email: "reina@gmail.com", password_digest: "password", about_me: "I go to Flatiron", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+user2 = User.create(name: "Jamal", username: "Jamalino", email: "jamal@gmail.com", password_digest: "123456", about_me: "I'm super cool", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+user3 = User.create(name: "Gaida", username: "Coder123", email: "gaida@gmail.com", password_digest: "654321", about_me: "I love Jamal", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+user4 = User.create(name: "Ethan", username: "EthanJF", email: "ethan@gmail.com", password_digest: "p@ssw0rd", about_me: "I love coding", photo_url: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
 
 stock1 = Stock.create(name: "Apple", ticker: "AAPL", initial_value: 240, current_value: 240, initial_quantity: 5000, current_quantity: 5000)
 stock2 = Stock.create(name: "Netflix", ticker: "NFLX", initial_value: 278, current_value: 278, initial_quantity: 1000, current_quantity: 1000)

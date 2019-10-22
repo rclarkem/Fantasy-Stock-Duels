@@ -1,0 +1,20 @@
+<h1>Welcome to Fantasy Stock Market!</h1>
+<h2>Trending Users</h2>
+<ul>
+    <% @users.map do |user| %>
+    <li>
+        <%= user.name %>
+    </li>
+    <% end %>
+</ul>
+<br>
+<h2>Trending Stocks</h2>
+<ul>
+    <% @stocks.map do |stock| %>
+    <li>
+        <%= stock.name %>
+    </li>
+    <% end %>
+</ul>
+<br>
+<h2>Trending Battles</h2>

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_192823) do
     t.string "name"
     t.string "username"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.integer "wealth", default: 5000
     t.string "about_me"
     t.string "photo_url"

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        get_user
+    
     end
 
     def new
@@ -15,6 +15,19 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
+    end
+
+    def edit
+    
+    end
+
+    def update
+        @user.update(user_params)
+    end
+
+    def delete
+        @user.destroy
+        redirect_to users_path
     end
 
     private

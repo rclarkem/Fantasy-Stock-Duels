@@ -1,0 +1,25 @@
+<h1>Edit User Signup</h1>
+<%= form_for @user do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %> <br>
+
+<%= f.label :username %>
+<%= f.text_field :username %> <br>
+
+<%= f.label :email %>
+<%= f.text_field :email %> <br>
+
+<%= f.label :password %>
+<%= f.text_field :password %> <br>
+
+<%= f.label :wealth %>
+<%= f.number_field :wealth %> <br>
+
+<%= f.label :about_me %>
+<%= f.text_field :about_me %> <br>
+
+<%= f.label :photo_url %>
+<%= f.text_field :photo_url %> <br>
+
+<%= f.submit %>
+<% end %>
