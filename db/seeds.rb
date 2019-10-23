@@ -23,3 +23,10 @@ stockpick2 = StockPick.create(user: user2, stock: stock2, quantity: 1, value: 27
 stockpick1 = StockPick.create(user: user1, stock: stock1, quantity: 2, value: 480)
 stockpick3 = StockPick.create(user: user3, stock: stock3, quantity: 4, value: (stock3.initial_value * 3))
 stockpick4 = StockPick.create(user: user4, stock: stock4, quantity: 10, value: (stock4.initial_value * 10))
+
+battle1 = Battle.create(player1: user1, player2: user2)
+battle2 = Battle.create(player1: user2, player2: user3)
+battle3 = Battle.create(player1: user3, player2: user4)
+battle4 = Battle.create(player1: user4, player2: user1)
+
+puts "It's been seeded"

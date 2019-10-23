@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :battles
   resources :stock_picks
   resources :stocks, only: [:index, :show]
   resources :users
