@@ -19,9 +19,9 @@
 <br>
 <h2>Trending Battles</h2>
 <ul>
-    <% @battles.map do |battle| %>
+    <% @battles.top_five_battles.each do |battle| %>
     <li>
-     <%= link_to "#{battle.player1.name} vs  #{battle.player2.name}" , battle %> 
+     <%= link_to "#{battle.player1.name} vs  #{battle.player2.name}" , battle %>
     </li>
     <% end %>
 </ul>
