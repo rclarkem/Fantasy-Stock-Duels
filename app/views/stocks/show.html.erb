@@ -12,6 +12,12 @@
 <% end %>
 </ul>
 
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+    <p style="color:red"><%=error %></p>
+      <% end %>
+  <% end %>
+
 
 <%= form_for @stock_pick do |f| %>
     <%= f.hidden_field :stock_id, value: @stock.id %><br>

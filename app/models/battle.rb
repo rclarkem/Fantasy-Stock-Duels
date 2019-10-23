@@ -22,7 +22,6 @@ class Battle < ApplicationRecord
     end
 
 
-
     def self.top_five_battles
       if Battle.all.size >= 5
       Battle.all.order(created_at: :desc).first(5)
@@ -31,8 +30,8 @@ class Battle < ApplicationRecord
       end
     end
 
-    # def randomizer
-    #   random = rand()
-    # end
+    def randomizer
+      random = rand()
+    end
 
 end

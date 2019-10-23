@@ -4,5 +4,12 @@ class Stock < ApplicationRecord
 
 
     def self.trending_stock
-      self.all.max_by { |stock| stock.stock_picks.count}
+      if Stock.all.size >= 5
+      Stock.all.order(current_value: :desc).first(5)
+      else
+        Stock.all.order(current_value: :desc).first(Stock.all.size)
+      end
+
     end
+
+end

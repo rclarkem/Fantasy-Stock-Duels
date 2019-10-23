@@ -8,17 +8,10 @@ class BattlesController < ApplicationController
     end
 
     def show
-      # byebug
-      # @battle.winner_name()
-      # if @battle.player1.total_worth > @battle.player2.total_worth
-      #   @winner = @battle.player1.name
-      # else
-      #  @winner = @battle.player2.name
-      # end
+      
     end
 
     private
-
     def find_battle
         @battle = Battle.find(params[:id])
     end

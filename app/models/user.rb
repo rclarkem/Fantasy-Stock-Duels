@@ -9,6 +9,9 @@ class User < ApplicationRecord
     has_many :player1s, through: :battles_as_player2, source: :player1
 
 
+    def most_stock
+      
+    end
 
 
     def all_battles
@@ -30,7 +33,7 @@ class User < ApplicationRecord
     end
 
     def best_stock
-      # tried adding a conditional for the user withot
+      # tried adding a conditional for the user without
       if self.stocks != nil
         self.stocks.max_by { |stock| stock.current_value}
       else

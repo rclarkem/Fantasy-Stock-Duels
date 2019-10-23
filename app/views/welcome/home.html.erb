@@ -8,16 +8,18 @@
     <% end %>
 </ul>
 <br>
-<h2>Trending Stocks</h2>
-<ul>
-    <% @stocks.map do |stock| %>
+<h2>Trending Stocks </h2>
+<h6>by current value</h6>
+<ol>
+    <% @stocks.trending_stock.each do |stock| %>
     <li>
         <%= link_to stock.name, stock %>
     </li>
     <% end %>
-</ul>
+</ol>
 <br>
 <h2>Trending Battles</h2>
+<h6>by most recent battle</h6>
 <ol>
     <% @battles.top_five_battles.each do |battle| %>
     <li>

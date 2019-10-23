@@ -5,4 +5,7 @@ class WelcomeController < ApplicationController
         @stocks = Stock.all
         @battles = Battle.all
     end
+
+
+
 end
