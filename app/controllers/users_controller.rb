@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     end
 
     def show
-    
+        @battle = Battle.new
     end
 
     def new
@@ -14,7 +14,11 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
+        user = User.create(user_params)
+        if user.valid?
+            session[:user_id] = user.id
+            redirect_to root_path
+        end
     end
 
     def edit
@@ -37,6 +41,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :ticker, :initial_value, :current_value, :initial_quantity, :current_quantity)
+        params.require(:user).permit(:name, :username, :email, :password, :wealth, :about_me, :photo_url)
     end
 end

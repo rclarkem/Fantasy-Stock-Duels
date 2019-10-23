@@ -9,7 +9,20 @@ class BattlesController < ApplicationController
         
     end
 
+    def new
+        @battle = Battle.new
+    end
+
+    def create
+        @battle = Battle.create(battle_params)
+        redirect_to @battle
+    end
+
     private
+
+    def battle_params
+        params.require(:battle).permit(:player1_id, :player2_id)
+    end
 
     def find_battle
         @battle = Battle.find(params[:id])

@@ -1,0 +1,19 @@
+<h1>Login</h1>
+<%= form_for :session, url: "/login" do |f| %>
+
+<%= f.label :username %>
+<%= f.text_field :username %> <br>
+
+<%= f.label :password %>
+<%= f.text_field :password %> <br>
+
+  <% if flash[:errors] %>
+    <ul>
+      <% flash[:errors].each do |error| %>
+        <li class="error"><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<%= f.submit %>
+<% end %>

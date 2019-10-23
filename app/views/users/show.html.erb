@@ -20,7 +20,15 @@
     </li>
 </ul>
 
-<h2>BATTLE ME</h2>
+<% if @current_user == @user %>
+    <%= button_to "Edit", edit_user_path, :method => :get %>
+    <%= button_to "Delete", :method => :delete %>
+<% else %>
+<%= form_for @battle do |f| %>
+    <%= f.hidden_field :player1_id, value: @current_user.id %><br>
 
-<%= button_to "Edit", edit_user_path, :method => :get %>
-<%= button_to "Delete", :method => :delete %>
+    <%= f.hidden_field :player2_id, value: @user.id %><br>
+
+    <%= f.submit "BATTLE ME" %>
+<% end %>
+<% end %>

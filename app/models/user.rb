@@ -8,6 +8,8 @@ class User < ApplicationRecord
     has_many :battles_as_player2, foreign_key: :player2_id, class_name: "Battle", dependent: :destroy
     has_many :player1s, through: :battles_as_player2, source: :player1
 
+    has_secure_password
+
 
 
 def total_worth
