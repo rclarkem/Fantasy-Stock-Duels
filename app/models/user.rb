@@ -10,13 +10,23 @@ class User < ApplicationRecord
 
 
 
-def total_worth
-  self.stocks.reduce(0) {|sum, stock| sum + stock.current_value}
-end
+    def all_battles
+      self.battles_as_player2.concat(self.battles_as_player1)
+    end
 
-def best_stock
-  self.stocks.max_by { |stock| stock.current_value}
-end
+
+    def total_worth
+      self.stocks.reduce(0) {|sum, stock| sum + stock.current_value}
+    end
+
+    def best_stock
+      # tried adding a conditional for the user without any stocks
+      if self.stocks != nil
+        self.stocks.max_by { |stock| stock.current_value}
+      else
+        "You need to buy some stocks!"
+      end
+    end
 
 
 end
