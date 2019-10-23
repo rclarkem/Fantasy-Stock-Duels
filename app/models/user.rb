@@ -36,11 +36,7 @@ class User < ApplicationRecord
 
     def best_stock
       # tried adding a conditional for the user without
-      if self.stocks != nil
         self.stocks.max_by { |stock| stock.current_value}
-      else
-        "You need to buy some stocks!"
-      end
     end
 
 

@@ -10,7 +10,11 @@
     <% end %>
 </ul>
 <p>Total Worth: $<%= @user.total_worth %> </p>
-<p>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</p>
+<% if @user.stocks != [] %>
+    <p>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</p>
+<% else%>
+    <p>You need to buy some stocks!</p>
+<% end %>
 <ul>
     <li>
         Battles Won: <%= @user.battles_won.count %>

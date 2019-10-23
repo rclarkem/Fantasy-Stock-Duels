@@ -1,5 +1,5 @@
 class BattlesController < ApplicationController
-    before_action :find_battle, only: [:show]
+    before_action :find_battle, only: [:show, :fight]
 
     def index
       # byebug
@@ -17,6 +17,7 @@ class BattlesController < ApplicationController
 
     def create
         @battle = Battle.create(battle_params)
+        @battle.generator
         redirect_to @battle
     end
 
