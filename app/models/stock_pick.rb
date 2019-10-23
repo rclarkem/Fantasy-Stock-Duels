@@ -9,6 +9,8 @@ class StockPick < ApplicationRecord
   #    self.stock.save
   # end
 
+  validates :quantity, presence: true
+
 
 # This should be a validation custom method
 # def check_total

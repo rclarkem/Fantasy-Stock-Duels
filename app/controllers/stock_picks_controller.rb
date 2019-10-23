@@ -17,7 +17,8 @@ class StockPicksController < ApplicationController
       redirect_to  stock_pick_path(@stock_pick)
       end
     else
-      redirect_to new_stock_pick_path
+      flash[:errors] = @stock_pick.errors.full_messages
+      redirect_to stock_path(@stock_pick.stock)
     end
   end
 

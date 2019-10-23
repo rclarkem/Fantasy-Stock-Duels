@@ -11,14 +11,37 @@ class User < ApplicationRecord
     has_secure_password
 
 
+    def most_stock
+      
+    end
 
-def total_worth
-  self.stocks.reduce(0) {|sum, stock| sum + stock.current_value}
-end
 
-def best_stock
-  self.stocks.max_by { |stock| stock.current_value}
-end
+    def all_battles
+      self.battles_as_player1 + self.battles_as_player2
+    end
+
+
+    def battles_won
+      self.all_battles.select {|battle| battle.winner == self}
+    end
+
+    def battles_lost
+      self.all_battles.select {|battle| battle.loser == self}
+    end
+
+
+    def total_worth
+      self.stocks.reduce(0) {|sum, stock| sum + stock.current_value}
+    end
+
+    def best_stock
+      # tried adding a conditional for the user without
+      if self.stocks != nil
+        self.stocks.max_by { |stock| stock.current_value}
+      else
+        "You need to buy some stocks!"
+      end
+    end
 
 
 end
