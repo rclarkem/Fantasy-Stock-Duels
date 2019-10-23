@@ -7,4 +7,16 @@ class User < ApplicationRecord
 
     has_many :battles_as_player2, foreign_key: :player2_id, class_name: "Battle", dependent: :destroy
     has_many :player1s, through: :battles_as_player2, source: :player1
+
+
+
+def total_worth
+  self.stocks.reduce(0) {|sum, stock| sum + stock.current_value}
+end
+
+def best_stock
+  self.stocks.max_by { |stock| stock.current_value}
+end
+
+
 end
