@@ -26,8 +26,6 @@ class StockPicksController < ApplicationController
     @user = @stock_pick.user
   end
 
-
-
 private
   def find_stock_picks
     @stock_pick = StockPick.find(params[:id])
