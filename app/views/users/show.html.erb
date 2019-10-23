@@ -13,10 +13,10 @@
 <p>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</p>
 <ul>
     <li>
-        Battles Won:
+        Battles Won: <%= @user.battles_won.count %>
     </li>
     <li>
-        Battles Lost
+        Battles Lost: <%= @user.battles_lost.count %>
     </li>
 </ul>
 

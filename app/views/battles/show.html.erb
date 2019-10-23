@@ -1,6 +1,6 @@
 <h1>Battle: <%= @battle.player1.name %> vs. <%= @battle.player2.name %></h1>
 <br>
-<h2>Winner:</h2> <h3><%= @battle.winner() %></h3>
+<h2>Winner:</h2> <h3><%= link_to @battle.winner.name, user_path(@battle.winner) %> 🥇</h3>
 
 
 <br>

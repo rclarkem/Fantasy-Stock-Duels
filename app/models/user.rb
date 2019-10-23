@@ -10,8 +10,18 @@ class User < ApplicationRecord
 
 
 
+
     def all_battles
-      self.battles_as_player2.concat(self.battles_as_player1)
+      self.battles_as_player1 + self.battles_as_player2
+    end
+
+
+    def battles_won
+      self.all_battles.select {|battle| battle.winner == self}
+    end
+
+    def battles_lost
+      self.all_battles.select {|battle| battle.loser == self}
     end
 
 
@@ -20,7 +30,7 @@ class User < ApplicationRecord
     end
 
     def best_stock
-      # tried adding a conditional for the user without any stocks
+      # tried adding a conditional for the user withot
       if self.stocks != nil
         self.stocks.max_by { |stock| stock.current_value}
       else

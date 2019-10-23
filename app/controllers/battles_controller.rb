@@ -8,7 +8,8 @@ class BattlesController < ApplicationController
     end
 
     def show
-      @battle.winner()
+      # byebug
+      # @battle.winner_name()
       # if @battle.player1.total_worth > @battle.player2.total_worth
       #   @winner = @battle.player1.name
       # else

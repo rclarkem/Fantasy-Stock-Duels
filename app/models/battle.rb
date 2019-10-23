@@ -3,13 +3,24 @@ class Battle < ApplicationRecord
     belongs_to :player2, class_name: "User", foreign_key: "player2_id"
 
 
+
+
     def winner
       if self.player1.total_worth > self.player2.total_worth
-      winner = self.player1.name + "🥇"
+      winner = self.player1
       else
-        winner = self.player2.name + "🥇"
+      winner = self.player2
       end
     end
+
+    def loser
+      if self.player1.total_worth > self.player2.total_worth
+      loser = self.player2
+      else
+      loser = self.player1
+      end
+    end
+
 
 
     def self.top_five_battles
