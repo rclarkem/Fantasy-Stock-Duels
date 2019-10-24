@@ -45,5 +45,34 @@ class User < ApplicationRecord
         self.stocks.max_by { |stock| stock.current_value}
     end
 
+    def cash_remaining
+      total_cost = self.stock_picks.map do |stock_pick|
+        stock_pick.quantity * stock_pick.stock.current_value
+      end
+
+      total_cost_reduced = total_cost.reduce(0) do |sum, wealth|
+        sum + wealth
+      end 
+
+      new_wealth = self.wealth - total_cost_reduced
+    end
+
+    def update_wealth
+      self.update(wealth: cash_remaining)
+    end
+
+
+    def quantity_of_stocks
+    stock_quantity = {}
+      self.stock_picks.map do |stock_pick|
+        if stock_quantity[stock_pick.stock.name]
+          stock_quantity[stock_pick.stock.name] += stock_pick.quantity
+        else
+          stock_quantity[stock_pick.stock.name] = stock_pick.quantity
+        end
+      end
+      stock_quantity
+    end
+
 
 end

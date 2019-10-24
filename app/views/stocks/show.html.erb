@@ -1,6 +1,6 @@
 <h1><%= @stock.name %> (<%= @stock.ticker %>)</h1>
 
-<h2>Current Price: <%= "$#{@stock.current_value}"  %></h2>
+<h2>Current Price: <%= "$#{@stock.initial_value}"  %></h2>
 <h2>Shares Left: <%=@stock.current_quantity  %></h2>
 
 <br>
@@ -28,7 +28,7 @@
     <%= f.number_field :quantity, min:1, step: 0 %><br>
 
 
-    <%= f.hidden_field :value, value: @stock.current_value %><br>
+    <%= f.hidden_field :value, value: @stock.initial_value %><br>
 
     <%= f.submit "Buy Stock" %>
 <% end %>

@@ -9,10 +9,10 @@
 <h3>List of Stocks</h3>
 <ul>
     <% @user.stocks.uniq.map do |stock| %>
-    <li><%= link_to stock.name, stock %></li>
+    <li><%= link_to stock.name, stock %> at <%= @user.quantity_of_stocks[stock.name]%> shares </li>
     <% end %>
 </ul>
-<p>Total Worth: $<%= @user.total_worth %> </p>
+<p>Total Worth: $<%= @user.total_worth %></p>
 <% if @user.stocks != [] %>
     <p>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</p>
 <% else%>
@@ -26,9 +26,12 @@
         Battles Lost: <%= @user.battles_lost.count %>
     </li>
 </ul>
+<% @user.update_wealth%>
+
 <% if @current_user != nil%>
     <% if @current_user == @user %>
-        <h2>My Wealth: $<%= @user.wealth %></h2>
+    <h2>My Wallet: $<%= @user.wealth %></h2>
+
         <%= button_to "Edit", edit_user_path, :method => :get %>
         <%= button_to "Delete", @user, :method => :delete %>
     <% else %>

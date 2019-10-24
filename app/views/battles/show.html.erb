@@ -6,9 +6,10 @@
 <h2><%= @battle.player1.name %>'s Stocks:</h2>
 
 <ul>
-  <% @battle.player1.stocks.map do |stock|%>
+  <% @battle.player1.stocks.uniq.map do |stock|%>
   <li>
-    Stock Name: <%= stock.name %> - Value: $<%= stock.initial_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.initial_value %> at <%= @battle.player1.quantity_of_stocks[stock.name]  %> shares
+    
   </li>
   <% end %>
 </ul>
@@ -18,7 +19,8 @@
 <ul>
   <% @battle.player2.stocks.map do |stock|%>
   <li>
-    Stock Name: <%= stock.name %> - Value: $<%= stock.initial_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.initial_value %> at <%= @battle.player1.quantity_of_stocks[stock.name] %> shares
+    
 
   </li>
   <% end %>
@@ -29,9 +31,9 @@
 <h2><%= @battle.player1.name %>'s Stocks:</h2>
 
 <ul>
-  <% @battle.player1.stocks.map do |stock|%>
+  <% @battle.player1.stocks.uniq.map do |stock|%>
   <li>
-    Stock Name: <%= stock.name %> - Value: $<%= stock.current_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.current_value %> at <%= @battle.player1.quantity_of_stocks[stock.name] %> shares
 
   </li>
   <% end %>
@@ -42,13 +44,13 @@
 <ul>
   <% @battle.player2.stocks.map do |stock|%>
   <li>
-    Stock Name: <%= stock.name %> - Value: $<%= stock.current_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.current_value %> at <%= @battle.player1.quantity_of_stocks[stock.name] %> shares
+    
 
   </li>
   <% end %>
 </ul>
 
 <h2>Winner:</h2> <h3><%= link_to @battle.winner.name, user_path(@battle.winner) %> 🥇</h3>
-
 
 <br>

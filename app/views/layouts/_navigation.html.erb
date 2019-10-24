@@ -1,7 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="/">FanStockMarket</a>
   <form class="form-inline">
-  <%= link_to "Home", root_path, class:"btn btn-outline-primary" %>
   <% if @current_user != nil%>
     <div style="padding-left: 10px;">
       <%= link_to "My Profile", @current_user, :class => "btn btn-outline-primary" %>

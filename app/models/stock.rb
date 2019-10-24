@@ -13,4 +13,8 @@ class Stock < ApplicationRecord
 
     end
 
+    # def update_stock
+    #   self.update(initial_value: self.current_value)
+    # end
+
 end
