@@ -3,25 +3,22 @@
 
 <h1>Before the Battle</h1>
 
-<h2>Player 1 Stocks:</h2>
+<h2><%= @battle.player1.name %>'s Stocks:</h2>
 
 <ul>
   <% @battle.player1.stocks.map do |stock|%>
   <li>
-    Stock Name:<%= stock.name %>
-    Stock Value:<%= stock.initial_value %>
-
+    Stock Name: <%= stock.name %> - Value: $<%= stock.initial_value %>
   </li>
   <% end %>
 </ul>
 
-<h2>Player 2 Stocks:</h2>
+<h2><%= @battle.player2.name %>'s Stocks:</h2>
 
 <ul>
   <% @battle.player2.stocks.map do |stock|%>
   <li>
-    Stock Name:<%= stock.name %>
-    Stock Value:<%= stock.initial_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.initial_value %>
 
   </li>
   <% end %>
@@ -29,25 +26,23 @@
 
 <h1>After the Battle</h1>
 
-<h2>Player 1 Stocks:</h2>
+<h2><%= @battle.player1.name %>'s Stocks:</h2>
 
 <ul>
   <% @battle.player1.stocks.map do |stock|%>
   <li>
-    Stock Name:<%= stock.name %>
-    Stock Value:<%= stock.current_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.current_value %>
 
   </li>
   <% end %>
 </ul>
 
-<h2>Player 2 Stocks:</h2>
+<h2><%= @battle.player2.name %>'s Stocks:</h2>
 
 <ul>
   <% @battle.player2.stocks.map do |stock|%>
   <li>
-    Stock Name:<%= stock.name %>
-    Stock Value:<%= stock.current_value %>
+    Stock Name: <%= stock.name %> - Value: $<%= stock.current_value %>
 
   </li>
   <% end %>

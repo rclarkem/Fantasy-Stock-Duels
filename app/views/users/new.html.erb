@@ -10,7 +10,7 @@
 <%= f.text_field :email %> <br>
 
 <%= f.label :password %>
-<%= f.text_field :password %> <br>
+<%= f.password_field :password %> <br>
 
 <%= f.label :wealth %>
 <%= f.number_field :wealth %> <br>
@@ -20,6 +20,14 @@
 
 <%= f.label :photo_url %>
 <%= f.text_field :photo_url %> <br>
+
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].map do |error|%>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= f.submit %>
 <% end %>

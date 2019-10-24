@@ -10,6 +10,14 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    validates :name, presence: true
+    validates :username, presence: true, uniqueness: true
+    validates :email, presence: true, uniqueness: true
+    validates :password, presence: true
+    validates :wealth, presence: true, numericality: true
+    validates :about_me, presence: true
+    validates :photo_url, presence: true
+
 
     def most_stock
       

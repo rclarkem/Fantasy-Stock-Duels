@@ -18,12 +18,11 @@
       <% end %>
   <% end %>
 
-
+<% if @current_user != nil%>
 <%= form_for @stock_pick do |f| %>
     <%= f.hidden_field :stock_id, value: @stock.id %><br>
 
-    <%= f.label 'investor' %><br>
-    <%= collection_select :stock_pick, :user_id, User.all, :id, :name %><br>
+    <%= f.hidden_field :user_id, value: @current_user.id %><br>
 
     <%= f.label 'Amount of Shares' %><br>
     <%= f.number_field :quantity, min:1, step: 0 %><br>
@@ -31,9 +30,8 @@
 
     <%= f.hidden_field :value, value: @stock.current_value %><br>
 
-    <%= f.submit "Submit " %>
+    <%= f.submit "Buy Stock" %>
 <% end %>
-
-
-<br>
-<%= button_to "Buy Stock", new_stock_pick_path, method: :get%>
+<% else %>
+<h1>You must be logged in to buy stocks!</h1>
+<% end %>

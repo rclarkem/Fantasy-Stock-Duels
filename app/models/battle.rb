@@ -3,14 +3,28 @@ class Battle < ApplicationRecord
     belongs_to :player2, class_name: "User", foreign_key: "player2_id"
 
     def generator
+      player1_chance = rand(1)
+      player2_chance = rand(1)
+
+      if player1_chance == 0
       self.player1.stocks.map do |stock|
-        stock.update(current_value: stock.current_value * rand(-5..5))
+        stock.update(current_value: stock.current_value - rand(100))
       end
+      else
+        self.player1.stocks.map do |stock|
+        stock.update(current_value: stock.current_value + rand(100))
+      end
+    end
+      if player2_chance == 0
       self.player2.stocks.map do |stock|
-        stock.update(current_value: stock.current_value * rand(-5..5))
+        stock.update(current_value: stock.current_value - rand(100))
       end
-      # self.player1.update(total_worth:)
-      # self.player2.update(total_worth:)
+      else
+        self.player2.stocks.map do |stock|
+        stock.update(current_value: stock.current_value + rand(100))
+      end
+    end
+
     end
 
 

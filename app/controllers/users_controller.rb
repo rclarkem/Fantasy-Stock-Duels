@@ -18,6 +18,9 @@ class UsersController < ApplicationController
         if user.valid?
             session[:user_id] = user.id
             redirect_to root_path
+        else
+            flash[:errors] = user.errors.full_messages
+            redirect_to new_user_path
         end
     end
 
@@ -27,9 +30,10 @@ class UsersController < ApplicationController
 
     def update
         @user.update(user_params)
+        redirect_to @user
     end
 
-    def delete
+    def destroy
         @user.destroy
         redirect_to users_path
     end
