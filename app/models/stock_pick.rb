@@ -9,8 +9,13 @@ class StockPick < ApplicationRecord
 
 
   validates :quantity, presence: true
-  validates :quantity, numericality: {less_than: Stock.find(params[:stock_pick][:stock_id])}
+  # validates :quantity, numericality: {less_than:  Stock.find(@stock_pick.stock_id)}
 
+def check_balance
+  if self.stock.current_quantity  > 0
+
+  end
+end
 
   def update_stock
     if self.stock.current_quantity - self.quantity >= 0
