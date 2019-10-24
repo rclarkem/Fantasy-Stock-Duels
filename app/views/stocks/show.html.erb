@@ -31,9 +31,8 @@
 
     <%= f.hidden_field :value, value: @stock.current_value %><br>
 
-    <%= f.submit "Submit " %>
+    <%= f.submit "Buy Stock " %>
 <% end %>
 
 
 <br>
-<%= button_to "Buy Stock", new_stock_pick_path, method: :get%>

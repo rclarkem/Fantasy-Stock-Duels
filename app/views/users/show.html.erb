@@ -1,4 +1,7 @@
 <h1><%= @user.username %>'s Profile Page</h1>
+<h2>Wallet: <%= @user.wealth %></h2>
+
+
 <h3>List of Stocks</h3>
 <ul>
     <% @user.stocks.uniq.map do |stock| %>
@@ -28,11 +31,5 @@
     <%= button_to "Edit", edit_user_path, :method => :get %>
     <%= button_to "Delete", :method => :delete %>
 <% else %>
-<%= form_for @battle do |f| %>
-    <%= f.hidden_field :player1_id, value: @current_user.id %><br>
 
-    <%= f.hidden_field :player2_id, value: @user.id %><br>
-
-    <%= f.submit "BATTLE ME" %>
-<% end %>
 <% end %>

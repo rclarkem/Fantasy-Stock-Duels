@@ -10,10 +10,11 @@ class User < ApplicationRecord
 
     has_secure_password
 
+    # def cash_remaining
+    #   stock_pick = StockPick.find(@stock_pick.id)
+    #   self.wealth - (self.stock_pick.quantity * @stock_pick.stock.current_value)
+    # end
 
-    def most_stock
-      
-    end
 
 
     def all_battles

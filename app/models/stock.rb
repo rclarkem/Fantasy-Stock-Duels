@@ -2,6 +2,7 @@ class Stock < ApplicationRecord
     has_many :stock_picks
     has_many :users, through: :stock_picks
 
+# validates :current_value, numer
 
     def self.trending_stock
       if Stock.all.size >= 5
