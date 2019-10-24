@@ -17,4 +17,18 @@ class Stock < ApplicationRecord
     #   self.update(initial_value: self.current_value)
     # end
 
+    # def randomizer
+    #   rand(1)
+    # end
+
+    # def self.go_forward_in_time
+    #   Stock.all.map do |stock|
+    #     if stock.randomizer == 0
+    #       stock.update(initial_value: stock.initial_value - rand(100))
+    #     else
+    #     stock.update(initial_value: stock.initial_value + rand(100))
+    #     end
+    #   end
+    # end
+
 end

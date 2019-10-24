@@ -1,6 +1,6 @@
 <h1><%= @stock.name %> (<%= @stock.ticker %>)</h1>
 
-<h2>Current Price: <%= "$#{@stock.initial_value}"  %></h2>
+<h2>Current Price: <%= number_to_currency(@stock.initial_value)  %></h2>
 <h2>Shares Left: <%=@stock.current_quantity  %></h2>
 
 <br>

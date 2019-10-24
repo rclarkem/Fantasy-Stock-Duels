@@ -1,3 +1,4 @@
+<% rand_wealth = rand(500..5000000)%>
 <h1>New User Signup</h1>
 <%= form_for @user do |f| %>
 <%= f.label :name %>
@@ -12,14 +13,13 @@
 <%= f.label :password %>
 <%= f.password_field :password %> <br>
 
-<%= f.label :wealth %>
-<%= f.number_field :wealth %> <br>
+<%= f.hidden_field :wealth, value: rand_wealth %>
 
 <%= f.label :about_me %>
-<%= f.text_field :about_me %> <br>
+<%= f.text_field :about_me %>
 
-<%= f.label :photo_url %>
-<%= f.text_field :photo_url %> <br>
+<%= f.hidden_field :photo_url, value: "https://robohash.org/DRS.png?set=set1&size=300x300" %>
+
 
 <% if flash[:errors] %>
     <ul>

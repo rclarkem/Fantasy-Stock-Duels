@@ -1,0 +1,88 @@
+<h1>Before the Battle</h1>
+
+<h2><%= @battle.player1.name %>'s Stocks:</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Value</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @battle.player1.stocks.uniq.map do |stock|%>
+    <tr>
+      <td><%= stock.name %></td>
+      <td><%= number_to_currency(stock.initial_value) %></td>
+      <td><%= @battle.player1.quantity_of_stocks[stock.name] %> shares</td>
+    </tr>
+<% end %>
+
+  </tbody>
+</table>
+
+<h2><%= @battle.player2.name %>'s Stocks:</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Value</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @battle.player2.stocks.uniq.map do |stock|%>
+    <tr>
+      <td><%= stock.name %></td>
+      <td><%= number_to_currency(stock.initial_value) %></td>
+      <td><%= @battle.player2.quantity_of_stocks[stock.name] %> shares</td>
+    </tr>
+<% end %>
+
+  </tbody>
+</table>
+
+<h1>After the Battle</h1>
+
+<h2><%= @battle.player1.name %>'s Stocks:</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Value</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @battle.player1.stocks.uniq.map do |stock|%>
+    <tr>
+      <td><%= stock.name %></td>
+      <td><%= number_to_currency(stock.current_value) %></td>
+      <td><%= @battle.player1.quantity_of_stocks[stock.name] %> shares</td>
+    </tr>
+<% end %>
+
+  </tbody>
+</table>
+
+<h2><%= @battle.player2.name %>'s Stocks:</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Value</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @battle.player2.stocks.uniq.map do |stock|%>
+    <tr>
+      <td><%= stock.name %></td>
+      <td><%=number_to_currency(stock.current_value) %></td>
+      <td><%= @battle.player2.quantity_of_stocks[stock.name] %> shares</td>
+    </tr>
+<% end %>
+
+  </tbody>
+</table>
+

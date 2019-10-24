@@ -1,23 +1,21 @@
-<table class="table table-borderless table-dark">
+<h3>Trending Users</h3>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col"> Username</th>
+      <th scope="col">Username</th>
+      <th scope="col">Total Worth</th>
       <th scope="col">Battles Won</th>
     </tr>
   </thead>
   <tbody>
-
+      <% @users[0..5].map do |user| %>
     <tr>
-      <% @users.map do |user| %>
-      <th scope="row"><%=  %></th>
 
       <td><%= link_to user.username, user %></td>
-
-      <td><%= user.battles_won.count %>
-
-      </td>
+      <td><%=number_to_currency(user.total_worth) %></td>
+      <td><%= user.battles_won.count %></td>
     </tr>
     <% end %>
+
   </tbody>
 </table>
