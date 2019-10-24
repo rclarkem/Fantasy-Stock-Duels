@@ -1,0 +1,36 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">FanStockMarket</a>
+  <form class="form-inline">
+  <%= link_to "Home", root_path, class:"btn btn-outline-primary" %>
+  <% if @current_user != nil%>
+    <div style="padding-left: 10px;">
+      <%= link_to "My Profile", @current_user, :class => "btn btn-outline-primary" %>
+    </div>
+    <% end %>
+    <div style="padding-left: 10px;">
+      <%= link_to "List of Stocks", stocks_path, :class => "btn btn-outline-primary" %>
+    </div>
+    <div style="padding-left: 10px;">
+       <%= link_to "Other Investors", users_path, :class => "btn btn-outline-primary" %>
+    </div>
+    <div style="padding-left: 10px;">
+      <%= link_to "Battles" , battles_path, :class => "btn btn-outline-primary"%>
+    </div>
+    <% if @current_user == nil%>
+      <div style="padding-left: 10px;">
+        <%= link_to "Login" , login_path, :class => "btn btn-outline-primary"%>
+      </div>
+      <div style="padding-left: 10px;">
+        <%= link_to "Signup" , new_user_path, :class => "btn btn-outline-primary"%>
+      </div>
+    <% else%>
+     <div style="padding-left: 10px;">
+        Welcome, <%= @current_user.username %>
+      </div>
+      <div style="padding-left: 10px;">
+        <%= link_to "Logout" , logout_path, method: :delete, :class => "btn btn-outline-primary"%>
+      </div>
+    <% end %>
+
+  </form>
+</nav>

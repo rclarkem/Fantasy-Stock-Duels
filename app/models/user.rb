@@ -19,9 +19,6 @@ class User < ApplicationRecord
     validates :photo_url, presence: true
 
 
-    def most_stock
-      
-    end
 
 
     def all_battles
@@ -39,7 +36,8 @@ class User < ApplicationRecord
 
 
     def total_worth
-      self.stocks.reduce(0) {|sum, stock| sum + stock.current_value}
+      value = self.stock_picks.map { |stock_pick| stock_pick.quantity * Stock.find(stock_pick.stock_id).current_value}
+      value.reduce(0) { |sum, val| sum + val}
     end
 
     def best_stock

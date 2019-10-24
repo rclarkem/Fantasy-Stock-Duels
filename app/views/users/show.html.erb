@@ -5,8 +5,10 @@
 
 <h2>My Profile Photo</h2>
 <img src="<%= @user.photo_url %>">
+<h2><%= @user.wealth %></h2>
 <h3>List of Stocks</h3>
 <ul>
+
     <% @user.stocks.uniq.map do |stock| %>
     <li><%= link_to stock.name, stock %>
     <% @user.stock_picks.each do |stock| %>
@@ -44,4 +46,9 @@
     <% end %>
 <% else%>
 <h1>You must be logged in to battle!</h1>
+<% if @current_user == @user %>
+    <%= button_to "Edit", edit_user_path, :method => :get %>
+    <%= button_to "Delete", :method => :delete %>
+<% else %>
+
 <% end %>
