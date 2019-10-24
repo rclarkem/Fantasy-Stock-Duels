@@ -9,8 +9,7 @@ class StocksController < ApplicationController
 
 
   def show
-
-  @stock_pick = StockPick.new
+    @stock_pick = StockPick.new
   end
 
   def edit

@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th scope="col">Username</th>
+      <th scope="col">Total Worth</th>
       <th scope="col">Battles Won</th>
     </tr>
   </thead>
@@ -11,7 +12,7 @@
       <% @users.map do |user| %>
 
       <td><%= link_to user.username, user %></td>
-
+      <td><%=number_to_currency(user.total_worth) %></td>
       <td><%= user.battles_won.count %>
 
       </td>

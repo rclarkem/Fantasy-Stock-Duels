@@ -1,39 +1,41 @@
 <h1><%= @user.username %>'s Profile Page</h1>
-
-<h2>About Me</h2>
+<br>
+<h3>About Me</h3>
 <p><%= @user.about_me %></p>
-
-<h2>My Profile Photo</h2>
+<br>
+<h3>My Profile Photo</h3>
 <img src="<%= @user.photo_url %>">
-
+<br> <br>
 <h3>List of Stocks</h3>
 <ul>
     <% @user.stocks.uniq.map do |stock| %>
     <li><%= link_to stock.name, stock %> at <%= @user.quantity_of_stocks[stock.name]%> shares </li>
     <% end %>
 </ul>
-<p>Total Worth: <%= number_to_currency(@user.total_worth) %></p>
+
+<h5>Total Worth: <%= number_to_currency(@user.total_worth) %></h5> <br>
 <% if @user.stocks != [] %>
-    <p>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</p>
+    <h5>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</h5> <br>
 <% else%>
     <p>You need to buy some stocks!</p>
 <% end %>
+<h3>Battle Stats:</h3>
 <ul>
     <li>
-        Battles Won: <%= @user.battles_won.count %>
+        Won: <%= @user.battles_won.count %>
     </li>
     <li>
-        Battles Lost: <%= @user.battles_lost.count %>
+        Lost: <%= @user.battles_lost.count %>
     </li>
 </ul>
 <% @user.update_wealth%>
 
 <% if @current_user != nil%>
     <% if @current_user == @user %>
-    <h2>My Wallet: <%= number_to_currency(@user.wealth) %></h2>
+    <h3>My Wallet: <%= number_to_currency(@user.wealth) %></h3> <br>
 
-        <%= button_to "Edit", edit_user_path, :method => :get %>
-        <%= button_to "Delete", @user, :method => :delete %>
+        <%= button_to "Edit", edit_user_path, :method => :get, :class => "btn btn-outline-primary" %> <br>
+        <%= button_to "Delete", @user, :method => :delete, :class => "btn btn-outline-primary" %>
     <% else %>
         <%= form_for @battle do |f| %>
         <%= f.hidden_field :player1_id, value: @current_user.id %><br>
