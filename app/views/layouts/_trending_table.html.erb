@@ -1,28 +1,18 @@
-<table class="table table-borderless table-dark">
-
+<h3>Trending Stocks</h3>
+<table class="table table-hover">
   <thead>
-
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Stock Name</th>
       <th scope="col">Current Price</th>
     </tr>
   </thead>
   <tbody>
-
     <tr>
       <% @stocks.trending_stock.each do |stock| %>
-      <th scope="row"><%=  %></th>
-
       <td><%= link_to stock.name, stock %></td>
-
-      <td><%= number_to_currency(stock.current_value) %>
-
+      <td><%= number_to_currency(stock.initial_value) %>
       </td>
-
     </tr>
-
-
       <% end %>
     </tbody>
   </table>

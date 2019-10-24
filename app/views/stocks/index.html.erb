@@ -1,7 +1,19 @@
 <h1>Stocks</h1>
 
-<ul>
-<% @stocks.each do |stock| %>
-  <li><%= link_to stock.name, stock_path(stock) %></li>
-<% end %>
-</ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Stock Name</th>
+      <th scope="col">Current Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @stocks.each do |stock| %>
+      <td><%= link_to stock.name, stock %></td>
+      <td><%= number_to_currency(stock.initial_value) %>
+      </td>
+    </tr>
+      <% end %>
+    </tbody>
+  </table>

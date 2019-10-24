@@ -1,8 +1,24 @@
 <h1>Battles</h1>
-<ul>
-    <% @battles.map do |battle| %>
-    <li>
-     <%= link_to "#{battle.player1.name} vs  #{battle.player2.name}" , battle %> 
-    </li>
-    <% end %>
-</ul>
+<% if @battles == []%>
+<h3>There are no battles!</h3>
+
+<% else %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Competitors</th>
+      <th scope="col">Winner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @battles.each do |battle| %>
+
+      <td><%= link_to "#{battle.player1.name} vs  #{battle.player2.name}" , battle%></td>
+      <td><%= battle.winner.name %></td>
+
+    </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>

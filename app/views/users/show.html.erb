@@ -12,7 +12,7 @@
     <li><%= link_to stock.name, stock %> at <%= @user.quantity_of_stocks[stock.name]%> shares </li>
     <% end %>
 </ul>
-<p>Total Worth: $<%= @user.total_worth %></p>
+<p>Total Worth: <%= number_to_currency(@user.total_worth) %></p>
 <% if @user.stocks != [] %>
     <p>Best Stock: <%= @user.best_stock.name %> (<%= @user.best_stock.ticker %>)</p>
 <% else%>
@@ -30,7 +30,7 @@
 
 <% if @current_user != nil%>
     <% if @current_user == @user %>
-    <h2>My Wallet: $<%= @user.wealth %></h2>
+    <h2>My Wallet: <%= number_to_currency(@user.wealth) %></h2>
 
         <%= button_to "Edit", edit_user_path, :method => :get %>
         <%= button_to "Delete", @user, :method => :delete %>

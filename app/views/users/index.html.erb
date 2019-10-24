@@ -1,8 +1,21 @@
 <h1>Investors</h1>
-<ul>
-    <% @users.each do |user| %>
-    <li>
-        <%= link_to user.username, user %>
-    </li>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">Battles Won</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @users.map do |user| %>
+
+      <td><%= link_to user.username, user %></td>
+
+      <td><%= user.battles_won.count %>
+
+      </td>
+    </tr>
     <% end %>
-</ul>
+  </tbody>
+</table>

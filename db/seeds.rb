@@ -20,7 +20,7 @@ stock2 = Stock.create(name: "Netflix", ticker: "NFLX", initial_value: 278, curre
 stock3 = Stock.create(name: "Facebook", ticker: "FB", initial_value: 189, current_value: 189, initial_quantity: 500, current_quantity: 500)
 stock4 = Stock.create(name: "Google", ticker: "GOOG", initial_value: 1246, current_value: 1246, initial_quantity: 10000, current_quantity: 10000)
 
-stockpick2 = StockPick.create(user: user2, stock: stock2, quantity: 1, value: 278)
+stockpick2 = StockPick.create(user: user2, stock: stock2, quantity: 5, value: 278)
 stockpick1 = StockPick.create(user: user1, stock: stock1, quantity: 2, value: 480)
 stockpick3 = StockPick.create(user: user3, stock: stock3, quantity: 4, value: (stock3.initial_value * 3))
 stockpick4 = StockPick.create(user: user4, stock: stock4, quantity: 10, value: (stock4.initial_value * 10))
