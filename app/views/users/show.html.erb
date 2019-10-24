@@ -5,16 +5,11 @@
 
 <h2>My Profile Photo</h2>
 <img src="<%= @user.photo_url %>">
-<h2><%= @user.wealth %></h2>
+
 <h3>List of Stocks</h3>
 <ul>
-
     <% @user.stocks.uniq.map do |stock| %>
-    <li><%= link_to stock.name, stock %>
-    <% @user.stock_picks.each do |stock| %>
-
-    </li>
-    <% end %>
+    <li><%= link_to stock.name, stock %></li>
     <% end %>
 </ul>
 <p>Total Worth: $<%= @user.total_worth %> </p>
@@ -33,22 +28,18 @@
 </ul>
 <% if @current_user != nil%>
     <% if @current_user == @user %>
+        <h2>My Wealth: $<%= @user.wealth %></h2>
         <%= button_to "Edit", edit_user_path, :method => :get %>
         <%= button_to "Delete", @user, :method => :delete %>
     <% else %>
-    <%= form_for @battle do |f| %>
+        <%= form_for @battle do |f| %>
         <%= f.hidden_field :player1_id, value: @current_user.id %><br>
 
         <%= f.hidden_field :player2_id, value: @user.id %><br>
 
         <%= f.submit "BATTLE ME" %>
-    <% end %>
+        <% end %>
     <% end %>
 <% else%>
 <h1>You must be logged in to battle!</h1>
-<% if @current_user == @user %>
-    <%= button_to "Edit", edit_user_path, :method => :get %>
-    <%= button_to "Delete", :method => :delete %>
-<% else %>
-
 <% end %>
