@@ -20,6 +20,7 @@ class User < ApplicationRecord
 
 
 
+    
 
     def all_battles
       self.battles_as_player1 + self.battles_as_player2
