@@ -8,12 +8,24 @@ class StockPick < ApplicationRecord
 
 
 
-  validates :quantity, presence: true
-  # validates :quantity, numericality: {less_than:  Stock.find(@stock_pick.stock_id)}
+  # validates :quantity, presence: true
+  validate :check_quantity
+  validate :check_balance
+
+
 
 def check_balance
-  if self.stock.current_quantity  > 0
+  if self.user.wealth < self.stock.current_value
+    errors.add(:current_value, "Needs to be greater than 0")
+  end
+end
 
+
+def check_quantity
+  if self.quantity == nil
+    errors.add(:quantity, "Needs to be greater than 0")
+  elsif self.quantity > self.stock.current_quantity
+    errors.add(:quantity, "Not enough stock")
   end
 end
 
