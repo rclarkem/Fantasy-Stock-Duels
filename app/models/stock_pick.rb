@@ -15,8 +15,9 @@ class StockPick < ApplicationRecord
 
 
 def check_balance
-  if self.user.wealth < self.stock.current_value
-    errors.add(:current_value, "Needs to be greater than 0")
+  # byebug
+  if self.user.wealth < (self.stock.current_value * self.quantity)
+    errors.add(:current_value, "You broke")
   end
 end
 
