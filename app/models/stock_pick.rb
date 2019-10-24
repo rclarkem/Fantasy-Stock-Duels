@@ -4,10 +4,12 @@ class StockPick < ApplicationRecord
 
 #
 
-  validate
+  # validate
+
+
 
   validates :quantity, presence: true
-  # validates :quantity, numericality: {less_than: @stock.current_quantity}
+  validates :quantity, numericality: {less_than: Stock.find(params[:stock_pick][:stock_id])}
 
 
   def update_stock

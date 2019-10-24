@@ -1,29 +1,6 @@
-<h1>Welcome to Fantasy Stock Market!</h1>
-<h2>Trending Users</h2>
-<ul>
-    <% @users.map do |user| %>
-    <li>
-        <%= link_to user.name, user %>
-    </li>
-    <% end %>
-</ul>
+
+<%= render 'layouts/trending_users' %>
 <br>
-<h2>Trending Stocks </h2>
-<h6>by current value</h6>
-<ol>
-    <% @stocks.trending_stock.each do |stock| %>
-    <li>
-        <%= link_to stock.name, stock %>
-    </li>
-    <% end %>
-</ol>
+<%= render 'layouts/trending_table' %>
 <br>
-<h2>Trending Battles</h2>
-<h6>by most recent battle</h6>
-<ol>
-    <% @battles.top_five_battles.each do |battle| %>
-    <li>
-     <%= link_to "#{battle.player1.name} vs  #{battle.player2.name}" , battle %>
-    </li>
-    <% end %>
-</ol>
+<%= render 'layouts/trending_battles' %>

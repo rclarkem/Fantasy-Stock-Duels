@@ -1,0 +1,23 @@
+<table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"> Username</th>
+      <th scope="col">Battles Won</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <% @users.map do |user| %>
+      <th scope="row"><%=  %></th>
+
+      <td><%= link_to user.username, user %></td>
+
+      <td><%= user.battles_won.count %>
+
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
