@@ -34,6 +34,11 @@ class User < ApplicationRecord
     def battles_lost
       self.all_battles.select {|battle| battle.loser == self}
     end
+    
+     def worth_before_battle
+      value = self.stock_picks.map { |stock_pick| stock_pick.quantity * Stock.find(stock_pick.stock_id).initial_value}
+      value.reduce(0) { |sum, val| sum + val}
+    end
 
 
     def total_worth
