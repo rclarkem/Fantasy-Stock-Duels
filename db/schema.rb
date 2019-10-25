@@ -23,14 +23,12 @@ ActiveRecord::Schema.define(version: 2019_10_22_210410) do
   end
 
   create_table "stock_picks", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "stock_id", null: false
+    t.integer "user_id"
+    t.integer "stock_id"
     t.integer "quantity"
     t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["stock_id"], name: "index_stock_picks_on_stock_id"
-    t.index ["user_id"], name: "index_stock_picks_on_user_id"
   end
 
   create_table "stocks", force: :cascade do |t|
@@ -49,13 +47,11 @@ ActiveRecord::Schema.define(version: 2019_10_22_210410) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.integer "wealth", default: 5000
+    t.integer "wealth"
     t.string "about_me"
     t.string "photo_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "stock_picks", "stocks"
-  add_foreign_key "stock_picks", "users"
 end

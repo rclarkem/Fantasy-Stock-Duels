@@ -1,8 +1,8 @@
-<h1>Battle: <%= @battle.player1.name %> vs. <%= @battle.player2.name %></h1>
+<h1>Battle: <%= @battle.player1.username %> vs. <%= @battle.player2.username %></h1>
 <br>
 <%= render 'layouts/battle_table' %>
 
 
-<h2>Winner:</h2> <h3><%= link_to @battle.winner.name, user_path(@battle.winner) %> 🥇</h3>
+<h2>Winner:</h2> <h3><%= link_to @battle.winner.username, user_path(@battle.winner) %> 🥇</h3>
 
 <br>

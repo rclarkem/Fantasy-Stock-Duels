@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :username
       t.string :email
       t.string :password_digest
-      t.integer :wealth, default: 5000
+      t.integer :wealth
       t.string :about_me
       t.string :photo_url
 

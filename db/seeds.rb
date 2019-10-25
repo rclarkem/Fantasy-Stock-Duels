@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-require 'rest-client'
-require 'json'
+# require 'rest-client'
+# require 'json'
 # Examples:
 StockPick.destroy_all
 Battle.destroy_all
@@ -11,21 +11,20 @@ User.destroy_all
 #   Character.create(name: 'Luke', movie: movies.first)
 
 30.times do 
-    User.create(name: Faker::Name.unique.name, username: Faker::TvShows::StarTrek.character, email: Faker::Internet.email, password: Faker::Hacker.noun, about_me: Faker::TvShows::TheFreshPrinceOfBelAir.quote, photo_url: Faker::Avatar.image)
+    rand_wealth = rand(500..5000000)
+    User.create(name: Faker::Name.unique.name, username: Faker::TvShows::StarTrek.character, email: Faker::Internet.email, password: Faker::Hacker.noun, wealth: rand_wealth, about_me: Faker::Movies::PrincessBride.quote, photo_url: Faker::Avatar.image)
 end
 
 30.times do
-    value = rand(50..1000)
+    value = rand(100..5000)
     quantity = rand(100..5000)
     Stock.create(name: Faker::Company.name, ticker: Faker::Hacker.abbreviation, initial_value: value, current_value: value, initial_quantity: quantity, current_quantity: quantity)
 end
 
-User.all.map do |user|
-    amount = rand(1..5)
-    Stock.all.sample(amount).map do |stock|
-    quantity = rand(2..100)
-        StockPick.create(user: user, stock: stock, quantity: quantity, value: stock.initial_value * quantity)
-    end
+100.times do
+    shares_amount = rand(5..100)
+    stock_chosen = Stock.all.sample
+    StockPick.create(user: User.all.sample, stock: stock_chosen, quantity: shares_amount, value: stock_chosen.initial_value * shares_amount)
 end
 
 30.times do 

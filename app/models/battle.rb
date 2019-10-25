@@ -9,20 +9,20 @@ class Battle < ApplicationRecord
 
       if player1_chance == 0
       self.player1.stocks.map do |stock|
-        stock.update(current_value: stock.current_value - rand(100))
+        stock.update(current_value: stock.current_value - rand(50))
       end
       else
         self.player1.stocks.map do |stock|
-        stock.update(current_value: stock.current_value + rand(100))
+        stock.update(current_value: stock.current_value + rand(50))
       end
     end
       if player2_chance == 0
       self.player2.stocks.map do |stock|
-        stock.update(current_value: stock.current_value - rand(100))
+        stock.update(current_value: stock.current_value - rand(50))
       end
       else
         self.player2.stocks.map do |stock|
-        stock.update(current_value: stock.current_value + rand(100))
+        stock.update(current_value: stock.current_value + rand(50))
       end
     end
 

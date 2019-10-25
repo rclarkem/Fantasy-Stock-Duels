@@ -12,10 +12,10 @@
   </thead>
   <tbody>
     <tr>
-      <% @battles.each do |battle| %>
+      <% @battles[0..4].each do |battle| %>
 
-      <td><%= link_to "#{battle.player1.name} vs  #{battle.player2.name}" , battle%></td>
-      <td><%= battle.winner.name %></td>
+      <td><%= link_to "#{battle.player1.username} vs  #{battle.player2.username}" , battle%></td>
+      <td><%= battle.winner.username %></td>
 
     </tr>
       <% end %>

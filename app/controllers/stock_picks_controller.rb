@@ -20,7 +20,8 @@ class StockPicksController < ApplicationController
       redirect_to  stock_pick_path(@stock_pick)
       # end
     else
-      flash[:errors] = @stock_pick.errors.full_messages
+      flash[:errors] = @stock_pick.errors.messages.values.flatten.each{|msg| msg}
+      # @stock_pick.errors.full_messages
       redirect_to stock_path(@stock_pick.stock)
     end
   end

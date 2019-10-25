@@ -2,22 +2,14 @@ class StockPick < ApplicationRecord
   belongs_to :user
   belongs_to :stock
 
-#
-
-  # validate
-
-
-
-  # validates :quantity, presence: true
-  validate :check_quantity
-  validate :check_balance
+  validate :check_balance, :check_quantity
 
 
 
 def check_balance
   # byebug
-  if self.user.wealth < (self.stock.current_value * self.quantity)
-    errors.add(:current_value, "You broke")
+  if self.user.wealth < (self.stock.initial_value * self.quantity)
+    errors.add(:initial_value, "You broke")
   end
 end
 

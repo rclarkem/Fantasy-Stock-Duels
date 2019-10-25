@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+# en:
+#   activerecord:
+#     errors:
+#       models:
+#         stock_pick:
+#           format: "%{message}"
+#         stock:
+#           format: "%{message}"
