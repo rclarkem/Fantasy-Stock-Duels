@@ -48,12 +48,12 @@ class User < ApplicationRecord
 
     def best_stock
       # tried adding a conditional for the user without
-        self.stocks.max_by { |stock| stock.current_value}
+        self.stocks.max_by { |stock| stock.initial_value}
     end
 
     def cash_remaining
       total_cost = self.stock_picks.map do |stock_pick|
-        stock_pick.quantity * stock_pick.stock.current_value
+        stock_pick.quantity * stock_pick.stock.initial_value
       end
 
       total_cost_reduced = total_cost.reduce(0) do |sum, wealth|

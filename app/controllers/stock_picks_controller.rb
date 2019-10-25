@@ -11,7 +11,8 @@ class StockPicksController < ApplicationController
     @stock_pick = StockPick.create(params_stock_pick)
     if @stock_pick.valid?
       @stock_pick.update_stock()
-      @stock_pick.user.update(wealth: @stock_pick.user.wealth - (@stock_pick.quantity * @stock_pick.stock.current_value))
+      @stock_pick.user.update_wealth
+      # @stock_pick.user.update(wealth: @stock_pick.user.wealth - (@stock_pick.quantity * @stock_pick.stock.initial_value))
       # if @stock_pick.stock.current_quantity - @stock_pick.quantity >= 0
       # curr_quan = @stock_pick.stock.current_quantity
       # @stock_pick.stock.update(current_quantity: curr_quan - @stock_pick.quantity)

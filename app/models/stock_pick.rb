@@ -8,7 +8,7 @@ class StockPick < ApplicationRecord
 
 def check_balance
   # byebug
-  if self.user.wealth < (self.stock.initial_value * self.quantity)
+  if self.user.cash_remaining < (self.stock.initial_value * self.quantity)
     errors.add(:initial_value, "Nice try! You don't have enough money for that purchase, bud.")
   end
 end

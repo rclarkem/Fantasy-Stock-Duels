@@ -6,9 +6,9 @@ class Stock < ApplicationRecord
 
     def self.trending_stock
       if Stock.all.size >= 5
-      Stock.all.order(current_value: :desc).first(5)
+      Stock.all.order(initial_value: :desc).first(5)
       else
-        Stock.all.order(current_value: :desc).first(Stock.all.size)
+        Stock.all.order(initial_value: :desc).first(Stock.all.size)
       end
 
     end

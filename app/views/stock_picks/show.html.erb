@@ -1,7 +1,5 @@
+<br>
 <h1>Successfully Added Stock</h1>
+<br>
+  <%= button_to "Buy More Stocks", stocks_path, method: :get, :class => "btn btn-outline-dark"%> <br> <%= button_to "Go to my profile", @stock_pick.user, method: :get, :class => "btn btn-outline-dark"%>
 
-  
-
-<body>
-  <p>Would you like to <%= button_to "Buy More Stocks", stocks_path, method: :get%> or <%= button_to "Go to my profile", @stock_pick.user, method: :get%></p>
-</body>
