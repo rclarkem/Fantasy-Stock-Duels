@@ -1,3 +1,4 @@
+<br>
 <h1>Login</h1>
 <%= form_for :session, url: "/login" do |f| %>
 
@@ -15,5 +16,5 @@
     </ul>
   <% end %>
 
-<%= f.submit %>
+<%= f.submit "Submit", :class => "btn btn-outline-dark" %>
 <% end %>

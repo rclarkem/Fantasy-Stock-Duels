@@ -9,7 +9,7 @@ class StockPick < ApplicationRecord
 def check_balance
   # byebug
   if self.user.wealth < (self.stock.initial_value * self.quantity)
-    errors.add(:initial_value, "You broke")
+    errors.add(:initial_value, "Nice try! You don't have enough money for that purchase, bud.")
   end
 end
 
@@ -18,7 +18,7 @@ def check_quantity
   if self.quantity == nil
     errors.add(:quantity, "Needs to be greater than 0")
   elsif self.quantity > self.stock.current_quantity
-    errors.add(:quantity, "Not enough stock")
+    errors.add(:quantity, "Aren't you greedy? There isn't enough stock to go around for that purchase, big spender!")
   end
 end
 

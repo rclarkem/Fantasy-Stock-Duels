@@ -13,8 +13,44 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
 
  body {
      padding: 1%;
+     color: #63707e !important;
+     font-family: 'Asap', sans-serif !important;
+ }
+
+
+ a {
+     color: #63707e;
+ }
+
+ a:active {
+     color: #93b5b3;
+ }
+
+#logo {
+     color: #63707e;
+ }
+
+ #navigation {
+     background-color: #f2f6f5 !important;
+ }
+
+ table {
+     background-color: #f2f6f5;
+ }
+
+ #value {
+     padding-left: 50px;
+ }
+
+ .btn {
+    border-color: #63707e !important;
+    color: #63707e !important;
+ }
+
+ .btn:hover {
+     background-color: #63707e !important;
+     color: #f2f6f5 !important;
  }

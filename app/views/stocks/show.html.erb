@@ -1,14 +1,15 @@
-<h1><%= @stock.name %> (<%= @stock.ticker %>)</h1>
-
-<h2>Current Price: <%= number_to_currency(@stock.initial_value)  %></h2>
-<h2>Shares Left: <%=@stock.current_quantity  %></h2>
+<br>
+<h2><%= @stock.name %> (<%= @stock.ticker %>)</h2>
+<br>
+<h4>Current Price: <%= number_to_currency(@stock.initial_value)  %></h4>
+<h4>Shares Left: <%=@stock.current_quantity  %></h4>
 
 <br>
-<h3>Investors Who Have This Stock: </h3>
+<h4>Investors Who Have This Stock: </h4>
 
 <ul>
 <% @stock.users.uniq.each do |user| %>
-  <li><%= user.username %></li>
+  <li><%= link_to user.username, user %></li>
 <% end %>
 </ul>
 
@@ -32,8 +33,8 @@
 
     <%= f.hidden_field :value, value: @stock.initial_value %><br>
 
-    <%= f.submit "Buy Stock" %>
+    <%= f.submit "Buy Stock" ,:class => "btn btn-outline-dark"%>
 <% end %>
 <% else %>
-<h1>You must be logged in to buy stocks!</h1>
+<h2>You must be logged in to buy stocks!</h2>
 <% end %>

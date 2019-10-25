@@ -1,13 +1,16 @@
-<h1>Before the Battle</h1>
+<%# <div class="container"> %>
+<h2 style="text-align: center;">Before the Battle</h2>
 
-<h2><%= @battle.player1.username %>'s Stocks:</h2>
+<h4><%= @battle.player1.username %>'s Stocks:</h4>
 <table class="table table-hover">
   <thead>
+  <div class="container">
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Value</th>
-      <th scope="col">Quantity</th>
+      <th scope="col" style="column-width: 200px;">Name</th>
+      <th scope="col" style="column-width: 200px;">Value</th>
+      <th scope="col" style="column-width: 200px;">Quantity</th>
     </tr>
+    </div>
   </thead>
   <tbody>
 <% @battle.player1.stocks.uniq.map do |stock|%>
@@ -21,17 +24,21 @@
   </tbody>
 </table>
 
-<h5><%= @battle.player1.username %>'s Total Worth: <%= number_to_currency(@battle.player1.worth_before_battle)%> </h5>
+
+
+<h6><%= @battle.player1.username %>'s Total Worth: <%= number_to_currency(@battle.player1.worth_before_battle)%> </h6>
 <br>
 
-<h2><%= @battle.player2.username %>'s Stocks:</h2>
+<h4><%= @battle.player2.username %>'s Stocks:</h4>
 <table class="table table-hover">
   <thead>
+  <div class="container">
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Value</th>
-      <th scope="col">Quantity</th>
+      <th scope="col" style="column-width: 200px;">Name</th>
+      <th scope="col" style="column-width: 200px;">Value</th>
+      <th scope="col" style="column-width: 200px;">Quantity</th>
     </tr>
+    </div>
   </thead>
   <tbody>
 <% @battle.player2.stocks.uniq.map do |stock|%>
@@ -44,18 +51,18 @@
 
   </tbody>
 </table>
-<h5><%= @battle.player2.username %>'s Total Worth: <%= number_to_currency(@battle.player2.worth_before_battle)%> </h5>
+<h6><%= @battle.player2.username %>'s Total Worth: <%= number_to_currency(@battle.player2.worth_before_battle)%> </h5>
 
 
-<h1>After the Battle</h1>
+<h2 style="text-align: center;">After the Battle</h2>
 
-<h2><%= @battle.player1.username %>'s Stocks:</h2>
+<h4><%= @battle.player1.username %>'s Stocks:</h4>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Value</th>
-      <th scope="col">Quantity</th>
+      <th scope="col" style="column-width: 200px;">Name</th>
+      <th scope="col" style="column-width: 200px;">Value</th>
+      <th scope="col" style="column-width: 200px;">Quantity</th>
     </tr>
   </thead>
   <tbody>
@@ -69,16 +76,16 @@
 
   </tbody>
 </table>
-<h5><%= @battle.player1.username %>'s Total Worth: <%= number_to_currency(@battle.player1.total_worth)%> </h5>
+<h6><%= @battle.player1.username %>'s Total Worth: <%= number_to_currency(@battle.player1.total_worth)%> </h6>
 <br>
 
-<h2><%= @battle.player2.username %>'s Stocks:</h2>
+<h4><%= @battle.player2.username %>'s Stocks:</h4>
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Value</th>
-      <th scope="col">Quantity</th>
+      <th scope="col" style="column-width: 200px;">Name</th>
+      <th scope="col" style="column-width: 200px;">Value</th>
+      <th scope="col" style="column-width: 200px;">Quantity</th>
     </tr>
   </thead>
   <tbody>
@@ -92,7 +99,8 @@
 
   </tbody>
 </table>
-<h5><%= @battle.player2.username %>'s Total Worth: <%= number_to_currency(@battle.player2.total_worth)%> </h5>
+<h6><%= @battle.player2.username %>'s Total Worth: <%= number_to_currency(@battle.player2.total_worth)%> </h6>
 <br> <br>
+<%# </div> %>
 
 

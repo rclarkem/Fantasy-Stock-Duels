@@ -1,35 +1,46 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Fantasy Stock Market</a>
-  <form class="form-inline">
+  <nav id="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
+  <a id="logo" class="navbar-brand" href="/">Fantasy Stock Market</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
   <% if @current_user != nil%>
-    <div style="padding-left: 10px;">
-      <%= link_to "My Profile", @current_user, :class => "btn btn-outline-primary" %>
-    </div>
-    <% end %>
-    <div style="padding-left: 10px;">
-      <%= link_to "List of Stocks", stocks_path, :class => "btn btn-outline-primary" %>
-    </div>
-    <div style="padding-left: 10px;">
-       <%= link_to "Other Investors", users_path, :class => "btn btn-outline-primary" %>
-    </div>
-    <div style="padding-left: 10px;">
-      <%= link_to "Battles" , battles_path, :class => "btn btn-outline-primary"%>
-    </div>
-    <% if @current_user == nil%>
-      <div style="padding-left: 10px;">
-        <%= link_to "Login" , login_path, :class => "btn btn-outline-primary"%>
-      </div>
-      <div style="padding-left: 10px;">
-        <%= link_to "Signup" , new_user_path, :class => "btn btn-outline-primary"%>
-      </div>
-    <% else%>
-     <div style="padding-left: 10px;">
-        Welcome, <%= @current_user.username %>
-      </div>
-      <div style="padding-left: 10px;">
-        <%= link_to "Logout" , logout_path, method: :delete, :class => "btn btn-outline-primary"%>
-      </div>
-    <% end %>
 
-  </form>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= user_path(@current_user) %>">My Profile <span class="sr-only">(current)</span></a>
+      </li>
+      <% end %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= stocks_path %>">List of Stocks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= users_path %>">Other Investors</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="<%= battles_path %>">Battles</a>
+      </li>
+  </li>
+  </ul>
+    <% if @current_user == nil%>
+       <span class="navbar-text">
+        <a class="nav-link" href="<%= login_path %>">Login</a>
+      
+    </span>
+     <span class="navbar-text">
+        <a class="nav-link" href="<%= new_user_path %>">Signup</a>
+  
+      
+    </span>
+        <% else %>
+      <span class="navbar-text">
+      Welcome, <%= @current_user.username %>
+    </span>
+     <span class="navbar-text">
+        <a class="nav-link" href="<%= logout_path %>">Logout</a>
+      
+    </span>
+      <% end %>
+
+  </div>
 </nav>

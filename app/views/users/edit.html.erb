@@ -12,8 +12,7 @@
 <%= f.label :password %>
 <%= f.text_field :password %> <br>
 
-<%= f.label :wealth %>
-<%= f.number_field :wealth %> <br>
+<%= f.hidden_field :wealth, value: :wealth %>
 
 <%= f.label :about_me %>
 <%= f.text_field :about_me %> <br>
