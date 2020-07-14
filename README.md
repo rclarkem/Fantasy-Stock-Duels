@@ -1,5 +1,9 @@
 # Fantasy Stock Market
 
+## Application 
+
+https://fantasy-stock-duels.herokuapp.com
+
 ## Demo
 
 ![DemoGif](https://github.com/rclarkem/Fantasy-Stock-Duels/blob/test_reina/mod2.gif)
